@@ -1,15 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 You will need to create a .env.local with the following appwrite connections:
-```NEXT_PUBLIC_ENDPOINT=ADD_YOUR_ENDPOINT
-
+```
+NEXT_PUBLIC_ENDPOINT=https://cloud.appwrite.io/v1
 NEXT_PUBLIC_PROJECT_ID=ADD_YOUR_PROJECT_ID
-
 NEXT_PUBLIC_DATABASE_ID=ADD_YOUR_DATABASE_ID
-
-NEXT_PUBLIC_COLLECTION_ID=ADD_YOUR_COLLECTION_ID
+NEXT_PUBLIC_POST_COLLECTION_ID=ADD_YOUR_COLLECTION_ID
 ```
 
 then you will need to install all required dependancies
@@ -26,6 +22,78 @@ pnpm dev
 # or
 bun dev
 ```
+
+  
+
+This documentation provides an overview of the functions available in the module, which interact with Appwrite's API to manage user sessions and account details.
+
+  
+### **Prerequisites**
+
+- Ensure that the `appwrite` client is initialized and properly configured in the `../app/appwrite` file.
+- If you have more questions about Appwrite, view the documents here: https://appwrite.io/docs
+  
+
+---
+
+  
+
+### **1. `getAccount()`**
+
+Fetches the currently authenticated user's account details.
+
+  
+
+- **Usage**:
+
+```typescript
+
+const user = await getAccount();
+
+```
+
+- **Returns**:
+
+- A `user` object containing account details if successful.
+
+- `null` if the account retrieval fails.
+
+- **Errors**:
+
+- Logs an error message to the console if the request fails.
+
+---
+
+### **2. `logout()`**
+
+Logs the user out by deleting the current session.
+
+- **Usage**:
+
+```typescript
+
+await logout();
+
+```
+
+- **Returns**: `void`
+
+
+- **Errors**:
+
+- Logs an error message to the console if the logout request fails.
+
+---
+### **Exported Functions**
+
+The following functions are exported for use in other parts of your application:
+
+- `getAccount`
+
+- `logout`
+---
+
+This documentation provides an overview of the available methods, their usage, parameters, return values, and potential errors to help developers understand and integrate these functions within their applications.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
