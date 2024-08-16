@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { account } from "../appwrite";
 import { ID } from "appwrite";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [signupFullName, setSignupFullName] = useState<string>("");
@@ -14,14 +15,17 @@ export default function Login() {
   async function handleSignUp(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
-      const response = await account.create(
-        ID.unique(),
-        signupEmail,
-        signupPassword,
-        signupFullName
-      );
-      console.log(response, "Account created successfully");
-      window.location.href = "/dashboard";
+      toast.success("Account created successfully!");
+      setTimeout(async () => {
+        const response = await account.create(
+          ID.unique(),
+          signupEmail,
+          signupPassword,
+          signupFullName
+        );
+        console.log(response, "Account created successfully");
+        window.location.href = "/dashboard";
+      }, 1000);
     } catch (error: any) {
       console.error(error);
       alert(error.message || "Something went wrong");
@@ -32,12 +36,14 @@ export default function Login() {
     e.preventDefault();
     // console.log(loginEmail, loginPassword);
     try {
-      const response = await account.createEmailPasswordSession(
-        loginEmail,
-        loginPassword
-      );
-      // console.log(response, "Logged in successfully");
-      window.location.href = "/dashboard";
+      toast.success("Login successfully!"); // Show success toast
+      setTimeout(async () => {
+        const response = await account.createEmailPasswordSession(
+          loginEmail,
+          loginPassword
+        );
+        window.location.href = "/dashboard";
+      }, 1000);
     } catch (error: any) {
       console.error(error);
       alert(error.message || "Something went wrong");
