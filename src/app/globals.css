@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer containers {
+  /* post/[postId]/page.tsx */
+  .postContainer {
+    @apply max-w-3xl mx-auto mt-8 p-6 bg-slate-100 rounded-lg shadow-lg relative;
+  }
+  /* dashboard/page.tsx */
+  .dashboardContainer {
+    @apply flex-1 p-8 flex flex-col gap-8 transition-transform duration-300 ease-in-out;
+  }
+  /* dashboard/page.tsx section */
+  .sectionContainer {
+    @apply flex-1 flex flex-col lg:flex-row gap-8;
+  }
+}
+
+@layer components {
+  .clickableListItem {
+    @apply p-6 border rounded-lg shadow-sm cursor-pointer hover:bg-green-800 transition duration-150 ease-in-out;
+  }
+
+  /* Login Page Styles */
+  .mainContainer {
+    @apply flex flex-col items-center min-h-screen mt-20;
+  }
+  .divContainer {
+    @apply w-full max-w-md bg-gray-200 rounded-lg shadow-lg p-8;
+  }
+  .h1Container {
+    @apply text-2xl font-semibold text-gray-800 mb-4;
+  }
+  .inputContainer {
+    @apply w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+  .buttonContainer {
+    @apply w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 px-4 transition;
+  }
+  /* end of Login Page Styles */
+}
