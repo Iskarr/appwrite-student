@@ -2,6 +2,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+You will need to create a .env.local with the following appwrite connections:
+NEXT_PUBLIC_ENDPOINT=ADD_YOUR_ENDPOINT
+NEXT_PUBLIC_PROJECT_ID=ADD_YOUR_PROJECT_ID
+NEXT_PUBLIC_DATABASE_ID=ADD_YOUR_DATABASE_ID
+NEXT_PUBLIC_COLLECTION_ID=ADD_YOUR_COLLECTION_ID
+
 First, run the development server:
 
 ```bash
